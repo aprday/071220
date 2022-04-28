@@ -26,7 +26,7 @@ function thenceThen(timespan){
  var hours=Math.floor((totalSecs-days*24*3600)/3600);
  var mins=Math.floor((totalSecs-days*24*3600-hours*3600)/60);
  var secs=Math.floor((totalSecs-days*24*3600-hours*3600-mins*60));
- document.getElementById("thenceThen").innerText=timespan+" timespan锛�+days+" days, "+hours+" hours, "+mins+" min, "+secs+" sec.";
+ document.getElementById("thenceThen").innerText=timespan+"timespan: "+days+" days, "+hours+" hours, "+mins+" min, "+secs+" sec.";
 }
 var clock;
 window.onload=function(){
