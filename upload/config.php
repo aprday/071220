@@ -19,7 +19,7 @@
 	$siteurl = "https://chez.baidu.re";
 
 // Site Title
-	$title = "°Ú¶ÉÍ¼´²";
+	$title = "æ‘†æ¸¡å›¾åºŠ";
 
 // Site Slogan
 	$slogan = "Free Image Host";
@@ -101,25 +101,25 @@
 				if (move_uploaded_file($_FILES['file']['tmp_name'],$filedir."/".$newname)) {
 
 				// Page output
-					$linkurl = '$siteurl.preg_replace('/\/([^\/]+?)$/', '/', $_SERVER['PHP_SELF']).'#'.$newname;
-					$linkurl = '$siteurl.preg_replace$siteurl.preg_replace('/\/([^\/]+?)$/', '/', $_SERVER['PHP_SELF']).'u/'.$newname;
+					$linkurl = 'http://'.$_SERVER['HTTP_HOST'].preg_replace('/\/([^\/]+?)$/', '/', $_SERVER['PHP_SELF']).'#'.$newname;
+					$linkurl = 'http://'.$_SERVER['HTTP_HOST'].preg_replace('/\/([^\/]+?)$/', '/', $_SERVER['PHP_SELF']).'u/'.$newname;
 					$alt = input($_POST["alt"]);
 					$bookmarking = bookmarking($imgurl,$alt);
 					$img_posted = '<div class="img_box"><a href="'.$imgurl.'" target="_blank"><img src="'.$imgurl.'"'.$img_size.' alt="chez.baidu.re" /></a></div>
 						<div class="right_col">
-						<label for="codebb">ÂÛÌ³´úÂë:</label><input type="text" id="codebb" value="[IMG]'.$imgurl.'[/IMG]" onclick="javascript:this.focus();this.select();" readonly="true" class="text_input long" /><br />
-						<label for="codelbb">´øÁ¬½ÓµÄÂÛÌ³´úÂë:</label><input type="text" id="codelbb" value="[URL='.$siteurl.'][IMG]'.$imgurl.'[/IMG][/URL]" onclick="javascript:this.focus();this.select();" readonly="true" class="text_input long" /><br />
-						<label for="codehtml">HTML´úÂë: </label><input type="text" id="codehtml" value=\'&lt;a href="'.$siteurl.'" title="'.$alt.'" &gt;&lt;img src="'.$imgurl.'" alt="'.$alt.'" /&gt;&lt/a&gt;\' onclick="javascript:this.focus();this.select();" readonly="true" class="text_input long" /><br />
-						<label for="codedirect">Í¼Æ¬ÍâÁ´µØÖ·:(email &amp; IM)</label><input type="text" id="codedirect" value="'.$imgurl.'" onclick="javascript:this.focus();this.select();" readonly="true" class="text_input long" />
-					</div><div class="clear"></div><div id="suc" class="notification success"><div><b>Í¼Æ¬ÉÏ´«³É¹¦£¡</b></div></div>';
+						<label for="codebb">è®ºå›ä»£ç :</label><input type="text" id="codebb" value="[IMG]'.$imgurl.'[/IMG]" onclick="javascript:this.focus();this.select();" readonly="true" class="text_input long" /><br />
+						<label for="codelbb">å¸¦è¿æ¥çš„è®ºå›ä»£ç :</label><input type="text" id="codelbb" value="[URL='.$siteurl.'][IMG]'.$imgurl.'[/IMG][/URL]" onclick="javascript:this.focus();this.select();" readonly="true" class="text_input long" /><br />
+						<label for="codehtml">HTMLä»£ç : </label><input type="text" id="codehtml" value=\'&lt;a href="'.$siteurl.'" title="'.$alt.'" &gt;&lt;img src="'.$imgurl.'" alt="'.$alt.'" /&gt;&lt/a&gt;\' onclick="javascript:this.focus();this.select();" readonly="true" class="text_input long" /><br />
+						<label for="codedirect">å›¾ç‰‡å¤–é“¾åœ°å€:(email &amp; IM)</label><input type="text" id="codedirect" value="'.$imgurl.'" onclick="javascript:this.focus();this.select();" readonly="true" class="text_input long" />
+					</div><div class="clear"></div><div id="suc" class="notification success"><div><b>å›¾ç‰‡ä¸Šä¼ æˆåŠŸï¼</b></div></div>';
 
 	// Errors -------------------
 				}else // move the uploaded file
-					$Err .= "ÎÄ¼şÉÏ´«¹ı³ÌÖĞ³öÏÖµÄÒ»¸öÎÊÌâ£¡<br/>";
+					$Err .= "æ–‡ä»¶ä¸Šä¼ è¿‡ç¨‹ä¸­å‡ºç°çš„ä¸€ä¸ªé—®é¢˜ï¼<br/>";
 			}else // more than 1mb $maxsize
-				$Err .= "ÎÄ¼ş³¬¹ı $maxsize_mb MB´óĞ¡,<br/>";
+				$Err .= "æ–‡ä»¶è¶…è¿‡ $maxsize_mb MBå¤§å°,<br/>";
 		}else // file type
-			$Err .=  "Ö»Ö§³Ö $types ¸ñÊ½ÉÏ´«<br/>"; // bebug file type strtolower($_FILES["file"]["type"])
+			$Err .=  "åªæ”¯æŒ $types æ ¼å¼ä¸Šä¼ <br/>"; // bebug file type strtolower($_FILES["file"]["type"])
 	}
 
 // UPLOAD CODE END
@@ -127,7 +127,7 @@
 
 function error_note($myproblem) {
 	if(isset($myproblem))
-		return "<div id=\"err\" class=\"notification error\"><div><b>·¢Éú´íÎó:</b> ".$myproblem."</div></div>";
+		return "<div id=\"err\" class=\"notification error\"><div><b>å‘ç”Ÿé”™è¯¯:</b> ".$myproblem."</div></div>";
 }
 
 function input($in){
