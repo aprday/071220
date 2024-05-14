@@ -106,7 +106,7 @@
 					$alt = input($_POST["alt"]);
 					$bookmarking = bookmarking($imgurl,$alt);
 					$img_posted = '<div class="img_box"><a href="'.$imgurl.'" target="_blank"><img src="'.$imgurl.'"'.$img_size.' alt="chez.baidu.re" /></a></div>
-						<div class="right_col">
+						<div class="right_col"><label id="toplabel">分享到...</label>'.$bookmarking.'
 						<label for="codebb">论坛代码:</label><input type="text" id="codebb" value="[IMG]'.$imgurl.'[/IMG]" onclick="javascript:this.focus();this.select();" readonly="true" class="text_input long" /><br />
 						<label for="codelbb">带连接的论坛代码:</label><input type="text" id="codelbb" value="[URL='.$siteurl.'][IMG]'.$imgurl.'[/IMG][/URL]" onclick="javascript:this.focus();this.select();" readonly="true" class="text_input long" /><br />
 						<label for="codehtml">HTML代码: </label><input type="text" id="codehtml" value=\'&lt;a href="'.$siteurl.'" title="'.$alt.'" &gt;&lt;img src="'.$imgurl.'" alt="'.$alt.'" /&gt;&lt/a&gt;\' onclick="javascript:this.focus();this.select();" readonly="true" class="text_input long" /><br />
@@ -137,7 +137,17 @@ function input($in){
 	return htmlspecialchars(stripslashes($in));
 }
 
+function bookmarking($document_url,$document_title){
+	$social_sites = array(
+		"tqq" => "http://v.t.qq.com/share/share.php?url={url}&title={title}&appkey=5ed332fb525f4fe0b8ae9ac3f10112c9&pic={url}",
+		"sina" => "http://v.t.sina.com.cn/share/share.php?appkey=2514157622&url={url}&title={title}&pic={url}",
+"qzone" => "http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={url}&title={title}&pics={url}",
 
+"pengyou" => "http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?to=pengyou&url={url}&title={title}&pics={url}&site=upload.tf",
+"renren" => "http://share.renren.com/share/buttonshare?link={url}&title={title}",
+
+		
+);
 	krsort($social_sites);
 	foreach($social_sites as $social_site=>$social_url){
 		$social_icon = strtolower(preg_replace('/[^a-zA-Z0-9]/', '', $social_site));
