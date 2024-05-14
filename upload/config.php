@@ -28,7 +28,7 @@
 // 1024*1024 is 1MB
 // 1024*1024*1.5 is 1.5MB
 // 1024*1024*2 is 2MB and so on
-	$maxsize = 3000*3000*5;
+	$maxsize = 1024*1024*20;
 
 
 ////////////////////////////////////////////////////////////////////////////////////
@@ -102,7 +102,7 @@
 
 				// Page output
 					$linkurl = 'http://'.$_SERVER['HTTP_HOST'].preg_replace('/\/([^\/]+?)$/', '/', $_SERVER['PHP_SELF']).'#'.$newname;
-					$linkurl = 'http://'.$_SERVER['HTTP_HOST'].preg_replace('/\/([^\/]+?)$/', '/', $_SERVER['PHP_SELF']).'u/'.$newname;
+					$imgurl = 'http://'.$_SERVER['HTTP_HOST'].preg_replace('/\/([^\/]+?)$/', '/', $_SERVER['PHP_SELF']).'u/'.$newname;
 					$alt = input($_POST["alt"]);
 					$bookmarking = bookmarking($imgurl,$alt);
 					$img_posted = '<div class="img_box"><a href="'.$imgurl.'" target="_blank"><img src="'.$imgurl.'"'.$img_size.' alt="chez.baidu.re" /></a></div>
@@ -137,17 +137,7 @@ function input($in){
 	return htmlspecialchars(stripslashes($in));
 }
 
-function bookmarking($document_url,$document_title){
-	$social_sites = array(
-		"tqq" => "http://v.t.qq.com/share/share.php?url={url}&title={title}&appkey=5ed332fb525f4fe0b8ae9ac3f10112c9&pic={url}",
-		"sina" => "http://v.t.sina.com.cn/share/share.php?appkey=2514157622&url={url}&title={title}&pic={url}",
-"qzone" => "http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={url}&title={title}&pics={url}",
 
-"pengyou" => "http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?to=pengyou&url={url}&title={title}&pics={url}&site=upload.tf",
-"renren" => "http://share.renren.com/share/buttonshare?link={url}&title={title}",
-
-		
-);
 	krsort($social_sites);
 	foreach($social_sites as $social_site=>$social_url){
 		$social_icon = strtolower(preg_replace('/[^a-zA-Z0-9]/', '', $social_site));
