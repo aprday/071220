@@ -101,8 +101,8 @@
 				if (move_uploaded_file($_FILES['file']['tmp_name'],$filedir."/".$newname)) {
 
 				// Page output
-					$linkurl = 'http://'.$_SERVER['HTTP_HOST'].preg_replace('/\/([^\/]+?)$/', '/', $_SERVER['PHP_SELF']).'#'.$newname;
-					$imgurl = 'http://'.$_SERVER['HTTP_HOST'].preg_replace('/\/([^\/]+?)$/', '/', $_SERVER['PHP_SELF']).'u/'.$newname;
+					$linkurl = $siteurl.preg_replace('/\/([^\/]+?)$/', '/', $_SERVER['PHP_SELF']).'#'.$newname;
+					$imgurl = $siteurl.preg_replace('/\/([^\/]+?)$/', '/', $_SERVER['PHP_SELF']).'u/'.$newname;
 					$alt = input($_POST["alt"]);
 					$bookmarking = bookmarking($imgurl,$alt);
 					$img_posted = '<div class="img_box"><a href="'.$imgurl.'" target="_blank"><img src="'.$imgurl.'"'.$img_size.' alt="chez.baidu.re" /></a></div>
